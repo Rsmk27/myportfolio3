@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RSMK — Electrical & Electronics Engineer</title>
-  <meta name="description" content="RSMK portfolio — futuristic, mobile-first design showcasing Smart Energy, IoT, Embedded Systems, and Automation." />
-  <meta property="og:title" content="RSMK — Electrical & Electronics Engineer" />
-  <meta property="og:description" content="Futuristic, electric-blue dark theme portfolio. Projects in Smart Energy, IoT, and Automation." />
+  <title>RSMK — Portfolio</title>
+  <meta name="description" content="RSMK portfolio — luxury dark theme showcasing Smart Energy, IoT, Embedded Systems, and Automation." />
+  <meta property="og:title" content="RSMK — Portfolio" />
+  <meta property="og:description" content="A refined, luxury dark-themed portfolio for Smart Energy, IoT, and Automation projects." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://placehold.co/1200x630/0b1220/00e5ff?text=RSMK%20Portfolio" />
-  <meta name="theme-color" content="#0B1220" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0f141b/c7a65a?text=RSMK%20Portfolio" />
+  <meta name="theme-color" content="#0F141B" />
 
+  <!-- Fonts: Elegant serif + modern sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -21,47 +23,28 @@
       theme: {
         extend: {
           screens: { xs: '420px' },
-          fontFamily: { space: ['Space Grotesk', 'system-ui', 'sans-serif'], inter: ['Inter', 'system-ui', 'sans-serif'] },
+          fontFamily: { display: ['Fraunces', 'serif'], sans: ['Manrope', 'system-ui', 'sans-serif'] },
           colors: {
-            base: {
-              950: '#05070C', 900: '#070C14', 850: '#09101B', 800: '#0B1220', 700: '#0F172A', 600: '#111827',
-              400: '#A8B6D1', 300: '#C6D0E3', 200: '#DEE6F7'
+            ink: {
+              950: '#090C10', 900: '#0B0F14', 850: '#0D1218', 800: '#0F141B', 700: '#141A22', 600: '#1A2028',
+              400: '#A9B0B8', 300: '#B8C0C8', 200: '#D4DAE1'
             },
-            neon: {
-              blue: '#00B7FF',
-              electric: '#1E90FF',
-              cyan: '#00E5FF',
-              mint: '#00FFCC',
-              purple: '#9D7CFF'
-            },
-            accent: {
-              1: '#00B7FF', // electric blue emphasis
-              2: '#00E5FF',
-              3: '#9D7CFF',
-              4: '#00FFCC'
+            gold: {
+              100: '#F0E7D3', 200: '#E7D9B5', 300: '#DEC992', 400: '#D1B776', 500: '#C7A65A', 600: '#B8924F', 700: '#9C7A42'
             }
           },
-          dropShadow: {
-            neon: '0 0 10px rgba(0,183,255,0.55)',
-          },
           boxShadow: {
-            soft: '0 10px 30px rgba(0,0,0,0.35)',
-            glow: '0 0 0 1px rgba(0,183,255,0.25), 0 8px 30px rgba(0,183,255,0.15)'
+            subtle: '0 10px 30px rgba(0,0,0,0.35)',
+            ring: '0 0 0 1px rgba(199,166,90,0.25), 0 10px 30px rgba(0,0,0,0.35)'
           },
-          backdropBlur: { xs: '6px' },
           keyframes: {
-            floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
-            pulseLine: { '0%': { opacity: 0.35 }, '50%': { opacity: 0.8 }, '100%': { opacity: 0.35 } },
-            shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
-            gridDrift: { '0%': { transform: 'translateY(0)' }, '100%': { transform: 'translateY(-40px)' } },
-            orb: { '0%': { transform: 'translate(0,0) scale(1)' }, '50%': { transform: 'translate(12px,-10px) scale(1.05)' }, '100%': { transform: 'translate(0,0) scale(1)' } }
+            rise: { '0%': { opacity: 0, transform: 'translateY(14px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            fade: { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+            sheen: { '0%': { transform: 'translateX(-200%)' }, '100%': { transform: 'translateX(200%)' } },
           },
           animation: {
-            floaty: 'floaty 6s ease-in-out infinite',
-            pulseLine: 'pulseLine 5s ease-in-out infinite',
-            shimmer: 'shimmer 3s linear infinite',
-            gridDrift: 'gridDrift 18s linear infinite',
-            orb: 'orb 12s ease-in-out infinite'
+            rise: 'rise .8s ease both',
+            fade: 'fade 1s ease both',
           }
         }
       }
@@ -69,90 +52,68 @@
   </script>
   <style>
     :root {
-      --bg-1: radial-gradient(1200px 600px at 10% 10%, rgba(0,183,255,.20), transparent 60%);
-      --bg-2: radial-gradient(1000px 500px at 90% 20%, rgba(157,124,255,.18), transparent 60%);
-      --bg-3: radial-gradient(900px 600px at 50% 90%, rgba(0,255,204,.08), transparent 60%);
-      --noise: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 120 120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.05"/></svg>');
+      --noise: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 120 120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.06"/></svg>');
     }
 
-    /* Background stack */
-    .bg-stack { position: fixed; inset: 0; z-index: -2; background: #070C14; }
-    .bg-stack::before {
-      content: ""; position: absolute; inset: 0; background:
-        linear-gradient(180deg, rgba(0,0,0,0.45), transparent 20%, transparent 80%, rgba(0,0,0,0.55)),
-        var(--bg-1), var(--bg-2), var(--bg-3);
-      filter: saturate(110%);
-      will-change: transform;
+    /* Luxury background: vignette + grain + soft spotlight */
+    .bg-luxe { position: fixed; inset: 0; z-index: -1; background: #0F141B; }
+    .bg-luxe::before { content: ""; position: absolute; inset: 0; background:
+      radial-gradient(900px 500px at 20% 10%, rgba(231,217,181,.08), transparent 60%),
+      radial-gradient(800px 400px at 80% 20%, rgba(199,166,90,.08), transparent 60%),
+      radial-gradient(700px 450px at 50% 100%, rgba(160,160,160,.06), transparent 60%);
+      filter: saturate(105%);
     }
-    .bg-stack::after { content: ""; position: absolute; inset: -1px; background-image: var(--noise); mix-blend-mode: soft-light; opacity: .3; pointer-events: none; }
+    .bg-luxe::after { content: ""; position: absolute; inset: -1px; background-image: var(--noise); mix-blend-mode: soft-light; opacity: .45; pointer-events: none; }
 
-    /* Subtle moving grid */
-    .grid-overlay { position: fixed; inset: 0; z-index: -2; opacity: .16; }
-    .grid-overlay::before {
-      content: ""; position: absolute; inset: 0; background-size: 40px 40px, 40px 40px;
-      background-image:
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-      animation: gridDrift 18s linear infinite;
-    }
-
-    /* Stars canvas sits at the very back */
-    #stars { position: fixed; inset: 0; z-index: -3; display: block; }
+    /* Soft vignette overlay */
+    .vignette { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+    .vignette::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent, rgba(0,0,0,.35) 65%, rgba(0,0,0,.65)); }
 
     /* Focus visibility */
-    :focus-visible { outline: 3px solid rgba(0,183,255,.75); outline-offset: 2px; border-radius: .5rem; }
+    :focus-visible { outline: 2px solid rgba(199,166,90,.55); outline-offset: 3px; border-radius: .5rem; }
 
     /* Reveal on scroll */
-    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.show { opacity: 1; transform: none; }
 
-    /* Nav scrolled state */
-    header.scrolled { border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(11,18,32,.65); backdrop-filter: blur(8px); }
+    /* Header scrolled state */
+    header.scrolled { border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(15,20,27,.6); backdrop-filter: blur(10px); }
 
-    /* Card tilt perspective container */
-    .tilt { transform-style: preserve-3d; transform: perspective(800px); }
-    .tilt .tilt-inner { transform: translateZ(0); transition: transform .2s ease; will-change: transform; }
+    /* Buttons sheen */
+    .btn-sheen { position: relative; overflow: hidden; }
+    .btn-sheen::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40%; transform: translateX(-200%); background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent); }
+    .btn-sheen:hover::after { animation: sheen 1.1s ease; }
 
-    /* Reduced motion safety */
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-    }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
   </style>
 </head>
-<body class="bg-base-900 text-base-200 antialiased font-inter selection:bg-cyan-500/30 selection:text-white">
-  <!-- Particles background (lightweight canvas stars) -->
-  <canvas id="stars" aria-hidden="true"></canvas>
-
+<body class="bg-ink-900 text-ink-200 antialiased font-sans selection:bg-gold-500/15 selection:text-ink-200">
   <!-- Background layers -->
-  <div class="bg-stack" data-parallax="-0.05" aria-hidden="true"></div>
-  <div class="grid-overlay" data-parallax="0.03" aria-hidden="true"></div>
+  <div class="bg-luxe" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
 
-  <!-- Top progress bar -->
-  <div class="fixed top-0 left-0 right-0 h-1.5 bg-white/5 z-50">
-    <div id="progress" class="h-full w-0 bg-gradient-to-r from-accent-1 via-accent-3 to-accent-2 shadow-glow"></div>
+  <!-- Progress bar -->
+  <div class="fixed top-0 left-0 right-0 h-[5px] z-50">
+    <div id="progress" class="h-full w-0 bg-gradient-to-r from-gold-700 via-gold-500 to-gold-300"></div>
   </div>
 
   <!-- NAV -->
   <header class="sticky top-0 z-40 transition-colors duration-300">
-    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
       <div class="flex items-center justify-between">
-        <a href="#hero" class="flex items-center gap-2 group" aria-label="Scroll to hero">
-          <!-- Rotating hex logo -->
-          <span class="relative inline-grid h-9 w-9 place-items-center rounded-xl bg-white/5 ring-1 ring-white/10 overflow-hidden">
-            <svg class="h-5 w-5 text-accent-1 transition-transform duration-700 group-hover:rotate-180" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
-              <polygon points="50,5 93,28 93,72 50,95 7,72 7,28" />
-            </svg>
-            <span class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-accent-1/10 to-transparent"></span>
+        <a href="#hero" class="flex items-center gap-3 group" aria-label="Go to hero">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">
+            <span class="font-display text-lg text-gold-400">R</span>
           </span>
-          <span class="font-space text-lg sm:text-xl tracking-wide text-white group-hover:drop-shadow-neon">RSMK</span>
+          <span class="font-display text-xl tracking-wide text-white group-hover:text-gold-300">RSMK</span>
         </a>
 
-        <button id="menuBtn" class="relative h-10 w-10 inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 md:hidden" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
-          <span class="sr-only">Menu</span>
+        <button id="menuBtn" class="relative h-10 w-10 inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 md:hidden" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
         </button>
 
-        <ul class="hidden md:flex items-center gap-6 text-base-300">
+        <ul class="hidden md:flex items-center gap-8 text-ink-400">
           <li><a class="hover:text-white focus-visible:text-white" href="#about">About</a></li>
           <li><a class="hover:text-white focus-visible:text-white" href="#projects">Projects</a></li>
           <li><a class="hover:text-white focus-visible:text-white" href="#skills">Skills</a></li>
@@ -162,7 +123,7 @@
 
       <!-- Mobile menu -->
       <div id="mobileMenu" class="md:hidden hidden pt-3" role="dialog" aria-modal="true">
-        <ul class="grid gap-2 rounded-2xl border border-white/10 bg-base-800/80 p-3 shadow-soft">
+        <ul class="grid gap-2 rounded-2xl border border-white/10 bg-ink-800/90 p-3 shadow-subtle">
           <li><a class="block rounded-xl px-4 py-3 hover:bg-white/5" href="#about">About</a></li>
           <li><a class="block rounded-xl px-4 py-3 hover:bg-white/5" href="#projects">Projects</a></li>
           <li><a class="block rounded-xl px-4 py-3 hover:bg-white/5" href="#skills">Skills</a></li>
@@ -173,73 +134,58 @@
   </header>
 
   <!-- HERO -->
-  <section id="hero" class="relative pt-28 sm:pt-32 pb-16 sm:pb-24">
+  <section id="hero" class="relative pt-24 sm:pt-28 pb-16 sm:pb-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-        <div class="order-2 lg:order-1 text-center lg:text-left reveal">
-          <h1 class="font-space text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white">
-            Hi, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent-1 via-accent-3 to-accent-2 animate-shimmer bg-[length:200%_100%]">Srinivasa Manikanta</span>
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 text-center lg:text-left reveal">
+          <p class="text-sm uppercase tracking-[0.2em] text-ink-400">Electrical & Electronics</p>
+          <h1 class="mt-3 font-display text-4xl xs:text-5xl sm:text-6xl lg:text-7xl leading-tight text-white">
+            A considered approach to <span class="text-gold-400">Smart Energy</span>, IoT & Embedded Systems
           </h1>
-          <p class="mt-4 text-base sm:text-lg text-base-300">Electrical & Electronics Engineering student building for Smart Energy, IoT, and Automation.</p>
-          <p class="mt-3 text-base sm:text-lg text-base-300">I build things related to <span id="tw" class="font-medium text-white"></span></p>
+          <p class="mt-5 text-base sm:text-lg text-ink-400">
+            I design and build thoughtful solutions—from embedded prototypes to connected tools—balancing utility and elegance.
+          </p>
 
           <div class="mt-8 flex flex-col xs:flex-row gap-3 xs:gap-4 justify-center lg:justify-start">
-            <a href="#projects" class="inline-flex h-12 items-center justify-center rounded-2xl px-6 bg-white/10 ring-1 ring-white/15 hover:bg-white/15 shadow-glow">View My Work</a>
-            <a href="#contact" class="inline-flex h-12 items-center justify-center rounded-2xl px-6 border border-white/15 hover:border-white/25">Get In Touch</a>
+            <a href="#projects" class="btn-sheen inline-flex h-12 items-center justify-center rounded-full px-7 bg-gradient-to-b from-white/5 to-white/10 border border-white/10 hover:border-gold-500/40 text-white shadow-subtle">View Projects</a>
+            <a href="#contact" class="inline-flex h-12 items-center justify-center rounded-full px-7 border border-white/10 hover:border-gold-500/40 text-ink-200">Get in Touch</a>
           </div>
 
-          <!-- Trust bar / mini stats -->
-          <div class="mt-10 grid grid-cols-3 gap-3 text-xs sm:text-sm text-base-300">
-            <div class="rounded-xl border border-white/10 p-3 backdrop-blur-xs">
+          <div class="mt-10 grid grid-cols-3 gap-3 text-xs sm:text-sm text-ink-400">
+            <div class="rounded-xl border border-white/10 p-3 bg-white/5">
               <div class="text-white font-semibold">10+</div>
               <div>Projects</div>
             </div>
-            <div class="rounded-xl border border-white/10 p-3 backdrop-blur-xs">
+            <div class="rounded-xl border border-white/10 p-3 bg-white/5">
               <div class="text-white font-semibold">Smart Energy</div>
               <div>Focus Area</div>
             </div>
-            <div class="rounded-xl border border-white/10 p-3 backdrop-blur-xs">
+            <div class="rounded-xl border border-white/10 p-3 bg-white/5">
               <div class="text-white font-semibold">IoT</div>
               <div>Embedded</div>
             </div>
           </div>
         </div>
 
-        <!-- Visual Panel -->
-        <div class="order-1 lg:order-2 relative reveal" data-parallax="0.06">
-          <div class="relative mx-auto h-[340px] xs:h-[380px] sm:h-[420px] w-full max-w-[480px] rounded-[28px] border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.03] p-2 shadow-soft tilt">
-            <div class="relative h-full w-full rounded-[22px] overflow-hidden bg-base-800 tilt-inner">
-              <!-- Orbs -->
-              <div class="absolute -top-8 -left-6 h-40 w-40 rounded-full bg-gradient-to-tr from-accent-1/60 to-accent-3/60 blur-2xl animate-orb" aria-hidden="true"></div>
-              <div class="absolute -bottom-10 -right-6 h-48 w-48 rounded-full bg-gradient-to-tr from-accent-2/50 to-accent-3/50 blur-2xl animate-orb [animation-delay:2s]" aria-hidden="true"></div>
-
-              <!-- Center chip card -->
-              <div class="absolute inset-0 grid place-items-center p-6">
-                <div class="w-full max-w-[300px] rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xs shadow-glow">
-                  <div class="flex items-center gap-3">
-                    <span class="h-9 w-9 rounded-xl bg-gradient-to-tr from-accent-1 to-accent-3 grid place-items-center"><i class="fa-solid fa-microchip text-base-900"></i></span>
-                    <div>
-                      <div class="text-white font-semibold">Embedded Systems</div>
-                      <div class="text-xs text-base-300">Real-time control · IoT</div>
-                    </div>
-                  </div>
-                  <div class="mt-4 h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
-                    <span class="block h-full w-2/3 bg-gradient-to-r from-accent-1 via-accent-3 to-accent-2 animate-pulseLine"></span>
+        <div class="lg:col-span-5 reveal">
+          <div class="relative mx-auto w-full max-w-md rounded-[28px] border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.06] p-2 shadow-subtle">
+            <div class="relative rounded-[22px] overflow-hidden bg-ink-800">
+              <!-- Elegant module -->
+              <div class="p-6">
+                <div class="flex items-center gap-3">
+                  <span class="h-10 w-10 grid place-items-center rounded-lg bg-white/5 border border-white/10"><i class="fa-solid fa-microchip text-gold-400"></i></span>
+                  <div>
+                    <div class="text-white font-semibold">Embedded Systems</div>
+                    <div class="text-xs text-ink-400">Real-time control · IoT</div>
                   </div>
                 </div>
+                <div class="mt-6 h-1 w-full rounded bg-white/10 overflow-hidden">
+                  <span class="block h-full w-2/3 bg-gradient-to-r from-gold-700 via-gold-500 to-gold-300"></span>
+                </div>
               </div>
-
-              <!-- Edge decorations -->
-              <div class="absolute left-0 right-0 bottom-0 h-12 bg-gradient-to-t from-base-800 to-transparent" aria-hidden="true"></div>
+              <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-ink-800 to-transparent"></div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Scroll cue -->
-      <div class="mt-10 flex justify-center" aria-hidden="true">
-        <div class="h-10 w-6 rounded-full border border-white/20 relative">
-          <span class="absolute left-1/2 top-2 h-2 w-1 -translate-x-1/2 rounded bg-white/70 animate-floaty"></span>
         </div>
       </div>
     </div>
@@ -248,24 +194,24 @@
   <!-- ABOUT -->
   <section id="about" class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="reveal">
-          <h2 class="font-space text-3xl sm:text-5xl font-bold text-white">About Me</h2>
-          <p class="mt-4 text-base sm:text-lg text-base-300 leading-relaxed">
+          <h2 class="font-display text-3xl sm:text-5xl font-semibold text-white">About</h2>
+          <p class="mt-4 text-base sm:text-lg text-ink-300 leading-relaxed">
             I'm a passionate Electrical and Electronics Engineering student with a focus on Smart Energy, Embedded Systems, and Automation. I turn ideas into working prototypes with clear documentation and efficient code.
           </p>
-          <ul class="mt-6 grid grid-cols-2 gap-3 text-sm text-base-200">
-            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-bolt mr-2 text-accent-1"></i>Smart Energy</li>
-            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-wifi mr-2 text-accent-2"></i>IoT & Cloud</li>
-            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-robot mr-2 text-accent-3"></i>Automation</li>
-            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-brain mr-2 text-accent-3"></i>AI-curious</li>
+          <ul class="mt-6 grid grid-cols-2 gap-3 text-sm text-ink-200">
+            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-bolt mr-2 text-gold-500"></i>Smart Energy</li>
+            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-wifi mr-2 text-gold-500"></i>IoT & Cloud</li>
+            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-robot mr-2 text-gold-500"></i>Automation</li>
+            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-brain mr-2 text-gold-500"></i>AI-curious</li>
           </ul>
         </div>
-        <div class="relative reveal" data-parallax="0.04">
-          <div class="relative mx-auto w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-2 shadow-soft">
-            <img src="https://placehold.co/800x800/0b1220/00b7ff?text=RSMK" alt="RSMK" class="h-full w-full rounded-[22px] object-cover" loading="lazy" />
-            <span class="pointer-events-none absolute -left-3 -top-3 h-6 w-6 rounded-full bg-accent-1 blur-sm"></span>
-            <span class="pointer-events-none absolute -right-3 -bottom-3 h-8 w-8 rounded-full bg-accent-3 blur-md"></span>
+        <div class="reveal">
+          <div class="relative mx-auto w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-2 shadow-subtle">
+            <img src="https://placehold.co/800x800/0f141b/c7a65a?text=RSMK" alt="RSMK" class="h-full w-full rounded-[22px] object-cover" loading="lazy" />
+            <span class="pointer-events-none absolute -left-3 -top-3 h-6 w-6 rounded-full bg-gold-500/40 blur-sm"></span>
+            <span class="pointer-events-none absolute -right-3 -bottom-3 h-8 w-8 rounded-full bg-gold-700/40 blur-md"></span>
           </div>
         </div>
       </div>
@@ -276,79 +222,79 @@
   <section id="projects" class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center reveal">
-        <h2 class="font-space text-3xl sm:text-5xl font-bold text-white">Projects</h2>
-        <p class="mt-3 text-base text-base-300">Selected work across IoT, embedded, and web tools.</p>
+        <h2 class="font-display text-3xl sm:text-5xl font-semibold text-white">Projects</h2>
+        <p class="mt-3 text-base text-ink-400">Selected work across IoT, embedded, and web tools.</p>
       </div>
 
       <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Card component -->
-        <article class="group rounded-2xl border border-white/10 bg-white/[0.06] p-3 hover:bg-white/[0.09] transition-colors tilt reveal">
-          <div class="relative h-44 w-full overflow-hidden rounded-xl tilt-inner">
+        <article class="group rounded-2xl border border-white/10 bg-white/[0.05] hover:bg-white/[0.07] transition-colors p-3 reveal">
+          <div class="relative h-48 w-full overflow-hidden rounded-xl">
             <img src="https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Smart Exhaust Fan project cover" class="h-full w-full object-cover group-hover:scale-[1.03] transition will-change-transform" loading="lazy"/>
-            <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-base-900/90 to-transparent"></span>
+            <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink-900/90 to-transparent"></span>
           </div>
           <div class="p-3">
             <h3 class="text-white font-semibold text-lg">Smart Exhaust Fan</h3>
-            <p class="mt-1 text-sm text-base-300">Automated exhaust fan reacting to humidity/temperature. Simple IoT with sensors & MCU.</p>
+            <p class="mt-1 text-sm text-ink-400">Automated exhaust fan reacting to humidity/temperature. Simple IoT with sensors & MCU.</p>
             <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="rounded-full border border-accent-1/30 px-2 py-1 text-accent-1/90">Arduino</span>
-              <span class="rounded-full border border-accent-2/30 px-2 py-1 text-accent-2/90">IoT</span>
-              <span class="rounded-full border border-accent-3/30 px-2 py-1 text-accent-3/90">Sensors</span>
+              <span class="rounded-full border border-white/10 px-2 py-1 text-ink-200">Arduino</span>
+              <span class="rounded-full border border-white/10 px-2 py-1 text-ink-200">IoT</span>
+              <span class="rounded-full border border-white/10 px-2 py-1 text-ink-200">Sensors</span>
             </div>
-            <a href="https://rsmk27.github.io/myportfolio" target="_blank" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 hover:bg-white/10">
+            <a href="https://rsmk27.github.io/myportfolio" target="_blank" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 hover:border-gold-500/40">
               View Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
         </article>
 
-        <article class="group rounded-2xl border border-white/10 bg-white/[0.06] p-3 hover:bg-white/[0.09] transition-colors tilt reveal">
-          <div class="relative h-44 w-full overflow-hidden rounded-xl tilt-inner">
+        <article class="group rounded-2xl border border-white/10 bg-white/[0.05] hover:bg-white/[0.07] transition-colors p-3 reveal">
+          <div class="relative h-48 w-full overflow-hidden rounded-xl">
             <img src="https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Color Ohm application cover" class="h-full w-full object-cover group-hover:scale-[1.03] transition will-change-transform" loading="lazy"/>
-            <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-base-900/90 to-transparent"></span>
+            <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink-900/90 to-transparent"></span>
           </div>
           <div class="p-3">
             <h3 class="text-white font-semibold text-lg">Color Ohm</h3>
-            <p class="mt-1 text-sm text-base-300">Python app to decode resistor values from bands with a Tkinter GUI.</p>
+            <p class="mt-1 text-sm text-ink-400">Python app to decode resistor values from bands with a Tkinter GUI.</p>
             <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="rounded-full border border-accent-1/30 px-2 py-1 text-accent-1/90">Python</span>
-              <span class="rounded-full border border-accent-2/30 px-2 py-1 text-accent-2/90">Tkinter</span>
-              <span class="rounded-full border border-accent-3/30 px-2 py-1 text-accent-3/90">GUI</span>
+              <span class="rounded-full border border-white/10 px-2 py-1 text-ink-200">Python</span>
+              <span class="rounded-full border border-white/10 px-2 py-1 text-ink-200">Tkinter</span>
+              <span class="rounded-full border border-white/10 px-2 py-1 text-ink-200">GUI</span>
             </div>
-            <a href="https://rsmk27.github.io/colorohm" target="_blank" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 hover:bg-white/10">
+            <a href="https://rsmk27.github.io/colorohm" target="_blank" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 hover:border-gold-500/40">
               View Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
         </article>
 
-        <article class="group rounded-2xl border border-white/10 bg-white/[0.06] p-3 hover:bg-white/[0.09] transition-colors tilt reveal">
-          <div class="relative h-44 w-full overflow-hidden rounded-xl tilt-inner">
+        <article class="group rounded-2xl border border-white/10 bg-white/[0.05] hover:bg-white/[0.07] transition-colors p-3 reveal">
+          <div class="relative h-48 w-full overflow-hidden rounded-xl">
             <img src="https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Budget Buddy web app cover" class="h-full w-full object-cover group-hover:scale-[1.03] transition will-change-transform" loading="lazy"/>
-            <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-base-900/90 to-transparent"></span>
+            <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink-900/90 to-transparent"></span>
           </div>
           <div class="p-3">
             <h3 class="text-white font-semibold text-lg">Budget Buddy</h3>
-            <p class="mt-1 text-sm text-base-300">Web-based personal finance tracker built with HTML, CSS, and JS.</p>
+            <p class="mt-1 text-sm text-ink-400">Web-based personal finance tracker built with HTML, CSS, and JS.</p>
             <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="rounded-full border border-accent-1/30 px-2 py-1 text-accent-1/90">HTML</span>
-              <span class="rounded-full border border-accent-2/30 px-2 py-1 text-accent-2/90">CSS</span>
-              <span class="rounded-full border border-accent-3/30 px-2 py-1 text-accent-3/90">JavaScript</span>
+              <span class="rounded-full border border-white/10 px-2 py-1 text-ink-200">HTML</span>
+              <span class="rounded-full border border-white/10 px-2 py-1 text-ink-200">CSS</span>
+              <span class="rounded-full border border-white/10 px-2 py-1 text-ink-200">JavaScript</span>
             </div>
-            <a href="https://rsmk27.github.io/BudgetBuddy" target="_blank" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 hover:bg-white/10">
+            <a href="https://rsmk27.github.io/BudgetBuddy" target="_blank" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 hover:border-gold-500/40">
               View Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
         </article>
 
         <!-- Upcoming placeholders -->
-        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-base-300 reveal">
+        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-ink-400 reveal">
           <div class="mb-3 text-2xl">UPCOMING</div>
           <p class="text-sm">A placeholder for an upcoming project.</p>
         </article>
-        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-base-300 reveal">
+        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-ink-400 reveal">
           <div class="mb-3 text-2xl">UPCOMING</div>
           <p class="text-sm">A placeholder for an upcoming project.</p>
         </article>
-        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-base-300 reveal">
+        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-ink-400 reveal">
           <div class="mb-3 text-2xl">UPCOMING</div>
           <p class="text-sm">A placeholder for an upcoming project.</p>
         </article>
@@ -360,57 +306,56 @@
   <section id="skills" class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center reveal">
-        <h2 class="font-space text-3xl sm:text-5xl font-bold text-white">Skills</h2>
+        <h2 class="font-display text-3xl sm:text-5xl font-semibold text-white">Skills</h2>
       </div>
 
       <div class="mt-10 grid lg:grid-cols-2 gap-8">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6 reveal">
           <h3 class="text-white font-semibold">Languages & Tools</h3>
           <div class="mt-4 space-y-4">
-            <!-- Progress row -->
             <div>
               <div class="flex items-center justify-between text-sm">
                 <span>Arduino / ESP8266</span>
-                <span class="text-base-400">70%</span>
+                <span class="text-ink-400">70%</span>
               </div>
-              <div class="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                <span class="block h-full w-[70%] bg-gradient-to-r from-accent-1 via-accent-3 to-accent-2"></span>
+              <div class="mt-2 h-[6px] rounded-full bg-white/10 overflow-hidden">
+                <span class="block h-full w-[70%] bg-gradient-to-r from-gold-700 via-gold-500 to-gold-300"></span>
               </div>
             </div>
             <div>
               <div class="flex items-center justify-between text-sm">
                 <span>Python</span>
-                <span class="text-base-400">60%</span>
+                <span class="text-ink-400">60%</span>
               </div>
-              <div class="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                <span class="block h-full w-[60%] bg-gradient-to-r from-accent-1 via-accent-3 to-accent-2"></span>
+              <div class="mt-2 h-[6px] rounded-full bg-white/10 overflow-hidden">
+                <span class="block h-full w-[60%] bg-gradient-to-r from-gold-700 via-gold-500 to-gold-300"></span>
               </div>
             </div>
             <div>
               <div class="flex items-center justify-between text-sm">
                 <span>HTML & CSS</span>
-                <span class="text-base-400">30%</span>
+                <span class="text-ink-400">30%</span>
               </div>
-              <div class="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                <span class="block h-full w-[30%] bg-gradient-to-r from-accent-1 to-accent-2"></span>
+              <div class="mt-2 h-[6px] rounded-full bg-white/10 overflow-hidden">
+                <span class="block h-full w-[30%] bg-gradient-to-r from-gold-700 via-gold-500 to-gold-300"></span>
               </div>
             </div>
             <div>
               <div class="flex items-center justify-between text-sm">
                 <span>Electrical</span>
-                <span class="text-base-400">75%</span>
+                <span class="text-ink-400">75%</span>
               </div>
-              <div class="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                <span class="block h-full w-[75%] bg-gradient-to-r from-accent-2 via-accent-1 to-accent-3"></span>
+              <div class="mt-2 h-[6px] rounded-full bg-white/10 overflow-hidden">
+                <span class="block h-full w-[75%] bg-gradient-to-r from-gold-700 via-gold-500 to-gold-300"></span>
               </div>
             </div>
             <div>
               <div class="flex items-center justify-between text-sm">
                 <span>C</span>
-                <span class="text-base-400">75%</span>
+                <span class="text-ink-400">75%</span>
               </div>
-              <div class="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                <span class="block h-full w-[75%] bg-gradient-to-r from-accent-3 via-accent-2 to-accent-1"></span>
+              <div class="mt-2 h-[6px] rounded-full bg-white/10 overflow-hidden">
+                <span class="block h-full w-[75%] bg-gradient-to-r from-gold-700 via-gold-500 to-gold-300"></span>
               </div>
             </div>
           </div>
@@ -419,28 +364,28 @@
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6 reveal">
           <h3 class="text-white font-semibold">Concepts & APIs</h3>
           <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
-              <i class="fa-solid fa-microchip text-2xl text-accent-1"></i>
+            <div class="group rounded-xl border border-white/10 bg-ink-800 p-5 text-center hover:border-gold-500/40">
+              <i class="fa-solid fa-microchip text-2xl text-gold-500"></i>
               <p class="mt-2 text-sm">Embedded Systems</p>
             </div>
-            <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
-              <i class="fa-solid fa-network-wired text-2xl text-accent-2"></i>
+            <div class="group rounded-xl border border-white/10 bg-ink-800 p-5 text-center hover:border-gold-500/40">
+              <i class="fa-solid fa-network-wired text-2xl text-gold-500"></i>
               <p class="mt-2 text-sm">IoT & Cloud</p>
             </div>
-            <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
-              <i class="fa-brands fa-python text-2xl text-accent-3"></i>
+            <div class="group rounded-xl border border-white/10 bg-ink-800 p-5 text-center hover:border-gold-500/40">
+              <i class="fa-brands fa-python text-2xl text-gold-500"></i>
               <p class="mt-2 text-sm">Telegram Bot API</p>
             </div>
-            <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
-              <i class="fa-solid fa-code-merge text-2xl text-accent-3"></i>
+            <div class="group rounded-xl border border-white/10 bg-ink-800 p-5 text-center hover:border-gold-500/40">
+              <i class="fa-solid fa-code-merge text-2xl text-gold-500"></i>
               <p class="mt-2 text-sm">Circuit Design</p>
             </div>
-            <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
-              <i class="fa-solid fa-battery-half text-2xl text-accent-2"></i>
+            <div class="group rounded-xl border border-white/10 bg-ink-800 p-5 text-center hover:border-gold-500/40">
+              <i class="fa-solid fa-battery-half text-2xl text-gold-500"></i>
               <p class="mt-2 text-sm">Power Electronics</p>
             </div>
-            <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
-              <i class="fa-solid fa-robot text-2xl text-accent-1"></i>
+            <div class="group rounded-xl border border-white/10 bg-ink-800 p-5 text-center hover:border-gold-500/40">
+              <i class="fa-solid fa-robot text-2xl text-gold-500"></i>
               <p class="mt-2 text-sm">AI</p>
             </div>
           </div>
@@ -453,26 +398,26 @@
   <section id="contact" class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center reveal">
-        <h2 class="font-space text-3xl sm:text-5xl font-bold text-white">Get In Touch</h2>
-        <p class="mt-3 text-base text-base-300">Let's connect and build something meaningful.</p>
+        <h2 class="font-display text-3xl sm:text-5xl font-semibold text-white">Get In Touch</h2>
+        <p class="mt-3 text-base text-ink-400">Let's connect and build something meaningful.</p>
       </div>
 
       <div class="mt-10 grid lg:grid-cols-2 gap-8 items-start">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6 reveal">
-          <p class="text-base text-base-200">Reach me on:</p>
+          <p class="text-base text-ink-200">Reach me on:</p>
           <div class="mt-5 flex gap-4">
-            <a href="https://github.com/Rsmk27" target="_blank" aria-label="GitHub" class="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/15 hover:bg-white/10">
+            <a href="https://github.com/Rsmk27" target="_blank" aria-label="GitHub" class="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 hover:border-gold-500/40">
               <i class="fab fa-github text-xl"></i>
             </a>
-            <a href="https://t.me/Rsmk_27" target="_blank" aria-label="Telegram" class="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/15 hover:bg-white/10">
+            <a href="https://t.me/Rsmk_27" target="_blank" aria-label="Telegram" class="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 hover:border-gold-500/40">
               <i class="fab fa-telegram text-xl"></i>
             </a>
-            <a href="mailto:srinivasmanikantarajapantula@gmail.com" aria-label="Email" class="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/15 hover:bg-white/10">
+            <a href="mailto:srinivasmanikantarajapantula@gmail.com" aria-label="Email" class="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 hover:border-gold-500/40">
               <i class="fa-regular fa-envelope text-xl"></i>
             </a>
           </div>
 
-          <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" download class="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 py-3 hover:bg-white/10" rel="noopener noreferrer">
+          <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" download class="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 hover:border-gold-500/40 btn-sheen" rel="noopener noreferrer">
             <span>Download Resume</span>
             <i class="fa-solid fa-download"></i>
           </a>
@@ -480,38 +425,34 @@
 
         <form id="contact-form" class="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4 reveal" novalidate>
           <div>
-            <label for="name" class="block text-sm text-base-300">Name</label>
-            <input id="name" name="name" type="text" required class="mt-1 w-full rounded-xl border border-white/10 bg-base-800 px-4 py-3 text-base-100 placeholder:text-base-400 focus:border-accent-1/60 focus:ring-0" placeholder="Your name" />
+            <label for="name" class="block text-sm text-ink-400">Name</label>
+            <input id="name" name="name" type="text" required class="mt-1 w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-ink-200 placeholder:text-ink-400 focus:border-gold-500/40 focus:ring-0" placeholder="Your name" />
             <p class="mt-1 hidden text-xs text-red-400" id="nameErr">Please enter your name.</p>
           </div>
           <div>
-            <label for="email" class="block text-sm text-base-300">Email</label>
-            <input id="email" name="email" type="email" required class="mt-1 w-full rounded-xl border border-white/10 bg-base-800 px-4 py-3 text-base-100 placeholder:text-base-400 focus:border-accent-1/60 focus:ring-0" placeholder="you@example.com" />
+            <label for="email" class="block text-sm text-ink-400">Email</label>
+            <input id="email" name="email" type="email" required class="mt-1 w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-ink-200 placeholder:text-ink-400 focus:border-gold-500/40 focus:ring-0" placeholder="you@example.com" />
             <p class="mt-1 hidden text-xs text-red-400" id="emailErr">Please enter a valid email.</p>
           </div>
           <div>
-            <label for="message" class="block text-sm text-base-300">Message</label>
-            <textarea id="message" name="message" rows="5" required class="mt-1 w-full rounded-xl border border-white/10 bg-base-800 px-4 py-3 text-base-100 placeholder:text-base-400 focus:border-accent-1/60 focus:ring-0" placeholder="How can I help?"></textarea>
+            <label for="message" class="block text-sm text-ink-400">Message</label>
+            <textarea id="message" name="message" rows="5" required class="mt-1 w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-ink-200 placeholder:text-ink-400 focus:border-gold-500/40 focus:ring-0" placeholder="How can I help?"></textarea>
             <p class="mt-1 hidden text-xs text-red-400" id="msgErr">Please enter a message.</p>
           </div>
-          <button type="submit" class="inline-flex h-12 items-center justify-center rounded-2xl px-6 bg-white/10 ring-1 ring-white/15 hover:bg-white/15 shadow-glow">Send Message</button>
-          <p id="formStatus" class="text-sm text-base-300" aria-live="polite"></p>
+          <button type="submit" class="inline-flex h-12 items-center justify-center rounded-full px-7 bg-gradient-to-b from-white/5 to-white/10 border border-white/10 hover:border-gold-500/40 text-white btn-sheen">Send Message</button>
+          <p id="formStatus" class="text-sm text-ink-400" aria-live="polite"></p>
         </form>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-white/10 py-8 text-center text-sm text-base-400">
+  <footer class="border-t border-white/10 py-8 text-center text-sm text-ink-400">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p>&copy; 2025 RSMK. All rights reserved.</p>
-      <p class="mt-1">Designed with <span aria-hidden="true">❤️</span> and <span aria-hidden="true">☕</span></p>
     </div>
   </footer>
 
   <script>
-    // Utils
-    const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
-
     // Scroll progress & nav state
     const progress = document.getElementById('progress');
     const header = document.querySelector('header');
@@ -524,21 +465,6 @@
     document.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // Typewriter
-    const words = ['Green Tech', 'Smart Energy', 'Embedded Systems', 'Robotics', 'Automation'];
-    const el = document.getElementById('tw');
-    let wi = 0, ci = 0, del = false;
-    function tick(){
-      const w = words[wi];
-      el.textContent = w.slice(0, ci);
-      if (!del && ci < w.length) ci++;
-      else if (del && ci > 0) ci--;
-      if (ci === w.length) { del = true; setTimeout(tick, 1200); return; }
-      if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; }
-      setTimeout(tick, del ? 45 : 85);
-    }
-    tick();
-
     // Mobile menu
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -550,43 +476,11 @@
 
     // Reveal on scroll
     const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add('show');
-      }
+      for (const e of entries) if (e.isIntersecting) e.target.classList.add('show');
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Parallax (elements with data-parallax="speed")
-    const parallaxItems = [...document.querySelectorAll('[data-parallax]')];
-    const parallax = () => {
-      const y = window.scrollY || document.documentElement.scrollTop;
-      for (const el of parallaxItems) {
-        const sp = parseFloat(el.getAttribute('data-parallax')) || 0;
-        el.style.transform = `translate3d(0, ${y * sp}px, 0)`;
-      }
-    };
-    document.addEventListener('scroll', parallax, { passive: true });
-    parallax();
-
-    // Tilt effect for cards and hero visual
-    const attachTilt = (root) => {
-      const inner = root.querySelector('.tilt-inner');
-      if (!inner) return;
-      const r = root.getBoundingClientRect();
-      const cx = r.left + r.width/2, cy = r.top + r.height/2;
-      const onMove = (ev) => {
-        const x = ev.clientX, y = ev.clientY;
-        const dx = clamp((x - cx) / (r.width/2), -1, 1);
-        const dy = clamp((y - cy) / (r.height/2), -1, 1);
-        inner.style.transform = `rotateX(${(-dy*6).toFixed(2)}deg) rotateY(${(dx*6).toFixed(2)}deg) translateZ(10px)`;
-      };
-      const onLeave = () => inner.style.transform = 'translateZ(0)';
-      root.addEventListener('mousemove', onMove);
-      root.addEventListener('mouseleave', onLeave);
-    };
-    document.querySelectorAll('.tilt').forEach(attachTilt);
-
-    // Simple form validation (client-only)
+    // Form validation
     const form = document.getElementById('contact-form');
     const nameErr = document.getElementById('nameErr');
     const emailErr = document.getElementById('emailErr');
@@ -604,37 +498,8 @@
       msgErr.classList.toggle('hidden', !!message); ok = ok && !!message;
       if (!ok) { status.textContent = 'Please fix the highlighted fields.'; return; }
       status.textContent = 'Sending…';
-      // Fake network
       setTimeout(() => { status.textContent = 'Message sent! I will get back to you soon.'; form.reset(); }, 900);
     });
-
-    // Lightweight canvas stars/particles
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    let W=0, H=0, stars=[]; const COUNT = 90; // keep it light
-    function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-    function resetStar(){
-      return { x: Math.random()*W, y: Math.random()*H, z: Math.random()*0.6 + 0.4, vx: (Math.random()-0.5)*0.15, vy: (Math.random()-0.5)*0.15 };
-    }
-    function init(){
-      resize(); stars = Array.from({length: COUNT}, resetStar);
-      draw();
-    }
-    function draw(){
-      ctx.clearRect(0,0,W,H);
-      for(const s of stars){
-        s.x += s.vx * (1.5*s.z); s.y += s.vy * (1.5*s.z);
-        if (s.x < -20 || s.x > W+20 || s.y < -20 || s.y > H+20) Object.assign(s, resetStar());
-        ctx.beginPath();
-        const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 1.8 + 1.8*s.z);
-        g.addColorStop(0, 'rgba(0,183,255,0.9)');
-        g.addColorStop(1, 'rgba(0,183,255,0)');
-        ctx.fillStyle = g; ctx.arc(s.x, s.y, 1.8 + 1.2*s.z, 0, Math.PI*2); ctx.fill();
-      }
-      requestAnimationFrame(draw);
-    }
-    window.addEventListener('resize', resize);
-    init();
   </script>
 </body>
 </html>
