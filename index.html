@@ -4,7 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RSMK — Electrical & Electronics Engineer</title>
-  <meta name="description" content="RSMK portfolio — futuristic, mobile-first design showcasing Smart Energy, IoT, and Embedded projects." />
+  <meta name="description" content="RSMK portfolio — futuristic, mobile-first design showcasing Smart Energy, IoT, Embedded Systems, and Automation." />
+  <meta property="og:title" content="RSMK — Electrical & Electronics Engineer" />
+  <meta property="og:description" content="Futuristic, electric-blue dark theme portfolio. Projects in Smart Energy, IoT, and Automation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0b1220/00e5ff?text=RSMK%20Portfolio" />
+  <meta name="theme-color" content="#0B1220" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -18,26 +24,29 @@
           fontFamily: { space: ['Space Grotesk', 'system-ui', 'sans-serif'], inter: ['Inter', 'system-ui', 'sans-serif'] },
           colors: {
             base: {
-              900: '#070C14', 800: '#0B1220', 700: '#0F172A', 600: '#111827',
+              950: '#05070C', 900: '#070C14', 850: '#09101B', 800: '#0B1220', 700: '#0F172A', 600: '#111827',
               400: '#A8B6D1', 300: '#C6D0E3', 200: '#DEE6F7'
             },
             neon: {
+              blue: '#00B7FF',
+              electric: '#1E90FF',
               cyan: '#00E5FF',
               mint: '#00FFCC',
-              magenta: '#FF49DB',
-              purple: '#9D7CFF',
-              lime: '#C6FF4D'
+              purple: '#9D7CFF'
             },
             accent: {
-              1: '#00E5FF', 2: '#00FFCC', 3: '#FF49DB', 4: '#9D7CFF', 5: '#C6FF4D'
+              1: '#00B7FF', // electric blue emphasis
+              2: '#00E5FF',
+              3: '#9D7CFF',
+              4: '#00FFCC'
             }
           },
           dropShadow: {
-            neon: '0 0 8px rgba(0,229,255,0.55)',
+            neon: '0 0 10px rgba(0,183,255,0.55)',
           },
           boxShadow: {
             soft: '0 10px 30px rgba(0,0,0,0.35)',
-            glow: '0 0 0 1px rgba(0,229,255,0.25), 0 8px 30px rgba(0,229,255,0.15)'
+            glow: '0 0 0 1px rgba(0,183,255,0.25), 0 8px 30px rgba(0,183,255,0.15)'
           },
           backdropBlur: { xs: '6px' },
           keyframes: {
@@ -60,40 +69,49 @@
   </script>
   <style>
     :root {
-      --bg-1: radial-gradient(1200px 600px at 10% 10%, rgba(0,229,255,.20), transparent 60%);
+      --bg-1: radial-gradient(1200px 600px at 10% 10%, rgba(0,183,255,.20), transparent 60%);
       --bg-2: radial-gradient(1000px 500px at 90% 20%, rgba(157,124,255,.18), transparent 60%);
-      --bg-3: radial-gradient(900px 600px at 50% 90%, rgba(198,255,77,.12), transparent 60%);
+      --bg-3: radial-gradient(900px 600px at 50% 90%, rgba(0,255,204,.08), transparent 60%);
       --noise: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 120 120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.05"/></svg>');
     }
 
     /* Background stack */
-    .bg-stack {
-      position: fixed; inset: 0; z-index: -1; background: #070C14;
-    }
+    .bg-stack { position: fixed; inset: 0; z-index: -2; background: #070C14; }
     .bg-stack::before {
       content: ""; position: absolute; inset: 0; background:
         linear-gradient(180deg, rgba(0,0,0,0.45), transparent 20%, transparent 80%, rgba(0,0,0,0.55)),
         var(--bg-1), var(--bg-2), var(--bg-3);
       filter: saturate(110%);
+      will-change: transform;
     }
-    .bg-stack::after {
-      content: ""; position: absolute; inset: -1px; background-image: var(--noise);
-      mix-blend-mode: soft-light; opacity: .3; pointer-events: none;
-    }
+    .bg-stack::after { content: ""; position: absolute; inset: -1px; background-image: var(--noise); mix-blend-mode: soft-light; opacity: .3; pointer-events: none; }
 
     /* Subtle moving grid */
-    .grid-overlay { position: fixed; inset: 0; z-index: -1; opacity: .18; }
+    .grid-overlay { position: fixed; inset: 0; z-index: -2; opacity: .16; }
     .grid-overlay::before {
-      content: ""; position: absolute; inset: 0;
-      background-size: 40px 40px, 40px 40px;
+      content: ""; position: absolute; inset: 0; background-size: 40px 40px, 40px 40px;
       background-image:
         linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
       animation: gridDrift 18s linear infinite;
     }
 
+    /* Stars canvas sits at the very back */
+    #stars { position: fixed; inset: 0; z-index: -3; display: block; }
+
     /* Focus visibility */
-    :focus-visible { outline: 3px solid rgba(0,229,255,.75); outline-offset: 2px; border-radius: .5rem; }
+    :focus-visible { outline: 3px solid rgba(0,183,255,.75); outline-offset: 2px; border-radius: .5rem; }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+
+    /* Nav scrolled state */
+    header.scrolled { border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(11,18,32,.65); backdrop-filter: blur(8px); }
+
+    /* Card tilt perspective container */
+    .tilt { transform-style: preserve-3d; transform: perspective(800px); }
+    .tilt .tilt-inner { transform: translateZ(0); transition: transform .2s ease; will-change: transform; }
 
     /* Reduced motion safety */
     @media (prefers-reduced-motion: reduce) {
@@ -102,9 +120,12 @@
   </style>
 </head>
 <body class="bg-base-900 text-base-200 antialiased font-inter selection:bg-cyan-500/30 selection:text-white">
+  <!-- Particles background (lightweight canvas stars) -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+
   <!-- Background layers -->
-  <div class="bg-stack" aria-hidden="true"></div>
-  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="bg-stack" data-parallax="-0.05" aria-hidden="true"></div>
+  <div class="grid-overlay" data-parallax="0.03" aria-hidden="true"></div>
 
   <!-- Top progress bar -->
   <div class="fixed top-0 left-0 right-0 h-1.5 bg-white/5 z-50">
@@ -112,12 +133,16 @@
   </div>
 
   <!-- NAV -->
-  <header class="sticky top-0 z-40 backdrop-blur-xs supports-[backdrop-filter]:bg-base-900/70">
+  <header class="sticky top-0 z-40 transition-colors duration-300">
     <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
       <div class="flex items-center justify-between">
         <a href="#hero" class="flex items-center gap-2 group" aria-label="Scroll to hero">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">
-            <span class="h-3 w-3 rounded-full bg-gradient-to-tr from-accent-1 to-accent-3 drop-shadow-neon"></span>
+          <!-- Rotating hex logo -->
+          <span class="relative inline-grid h-9 w-9 place-items-center rounded-xl bg-white/5 ring-1 ring-white/10 overflow-hidden">
+            <svg class="h-5 w-5 text-accent-1 transition-transform duration-700 group-hover:rotate-180" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+              <polygon points="50,5 93,28 93,72 50,95 7,72 7,28" />
+            </svg>
+            <span class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-accent-1/10 to-transparent"></span>
           </span>
           <span class="font-space text-lg sm:text-xl tracking-wide text-white group-hover:drop-shadow-neon">RSMK</span>
         </a>
@@ -151,7 +176,7 @@
   <section id="hero" class="relative pt-28 sm:pt-32 pb-16 sm:pb-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-        <div class="order-2 lg:order-1 text-center lg:text-left">
+        <div class="order-2 lg:order-1 text-center lg:text-left reveal">
           <h1 class="font-space text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white">
             Hi, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent-1 via-accent-3 to-accent-2 animate-shimmer bg-[length:200%_100%]">Srinivasa Manikanta</span>
           </h1>
@@ -181,34 +206,16 @@
         </div>
 
         <!-- Visual Panel -->
-        <div class="order-1 lg:order-2 relative">
-          <div class="relative mx-auto h-[340px] xs:h-[380px] sm:h-[420px] w-full max-w-[460px] rounded-[28px] border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.03] p-2 shadow-soft">
-            <div class="relative h-full w-full rounded-[22px] overflow-hidden bg-base-800">
+        <div class="order-1 lg:order-2 relative reveal" data-parallax="0.06">
+          <div class="relative mx-auto h-[340px] xs:h-[380px] sm:h-[420px] w-full max-w-[480px] rounded-[28px] border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.03] p-2 shadow-soft tilt">
+            <div class="relative h-full w-full rounded-[22px] overflow-hidden bg-base-800 tilt-inner">
               <!-- Orbs -->
-              <div class="absolute -top-8 -left-6 h-40 w-40 rounded-full bg-gradient-to-tr from-accent-1/60 to-accent-4/60 blur-2xl animate-orb" aria-hidden="true"></div>
+              <div class="absolute -top-8 -left-6 h-40 w-40 rounded-full bg-gradient-to-tr from-accent-1/60 to-accent-3/60 blur-2xl animate-orb" aria-hidden="true"></div>
               <div class="absolute -bottom-10 -right-6 h-48 w-48 rounded-full bg-gradient-to-tr from-accent-2/50 to-accent-3/50 blur-2xl animate-orb [animation-delay:2s]" aria-hidden="true"></div>
-
-              <!-- Device Mock / Grid -->
-              <div class="absolute inset-0 opacity-30" aria-hidden="true">
-                <svg viewBox="0 0 400 400" class="h-full w-full">
-                  <defs>
-                    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#00E5FF" stop-opacity=".6"/>
-                      <stop offset="100%" stop-color="#FF49DB" stop-opacity=".6"/>
-                    </linearGradient>
-                  </defs>
-                  <g stroke="url(#g)" stroke-width=".5">
-                    <!-- vertical -->
-                    <template></template>
-                    <script type="text/plain">grid</script>
-                    <!-- we'll draw with CSS bg -->
-                  </g>
-                </svg>
-              </div>
 
               <!-- Center chip card -->
               <div class="absolute inset-0 grid place-items-center p-6">
-                <div class="w-full max-w-[280px] rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xs shadow-glow">
+                <div class="w-full max-w-[300px] rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xs shadow-glow">
                   <div class="flex items-center gap-3">
                     <span class="h-9 w-9 rounded-xl bg-gradient-to-tr from-accent-1 to-accent-3 grid place-items-center"><i class="fa-solid fa-microchip text-base-900"></i></span>
                     <div>
@@ -242,21 +249,21 @@
   <section id="about" class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-10 items-center">
-        <div>
+        <div class="reveal">
           <h2 class="font-space text-3xl sm:text-5xl font-bold text-white">About Me</h2>
           <p class="mt-4 text-base sm:text-lg text-base-300 leading-relaxed">
             I'm a passionate Electrical and Electronics Engineering student with a focus on Smart Energy, Embedded Systems, and Automation. I turn ideas into working prototypes with clear documentation and efficient code.
           </p>
           <ul class="mt-6 grid grid-cols-2 gap-3 text-sm text-base-200">
-            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-bolt mr-2 text-accent-5"></i>Smart Energy</li>
-            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-wifi mr-2 text-accent-1"></i>IoT & Cloud</li>
-            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-robot mr-2 text-accent-4"></i>Automation</li>
+            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-bolt mr-2 text-accent-1"></i>Smart Energy</li>
+            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-wifi mr-2 text-accent-2"></i>IoT & Cloud</li>
+            <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-robot mr-2 text-accent-3"></i>Automation</li>
             <li class="rounded-xl border border-white/10 bg-white/5 p-3"><i class="fa-solid fa-brain mr-2 text-accent-3"></i>AI-curious</li>
           </ul>
         </div>
-        <div class="relative">
+        <div class="relative reveal" data-parallax="0.04">
           <div class="relative mx-auto w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-2 shadow-soft">
-            <img src="https://placehold.co/800x800/0b1220/00e5ff?text=RSMK" alt="Portrait placeholder for RSMK" class="h-full w-full rounded-[22px] object-cover" loading="lazy" />
+            <img src="https://placehold.co/800x800/0b1220/00b7ff?text=RSMK" alt="Portrait placeholder for RSMK" class="h-full w-full rounded-[22px] object-cover" loading="lazy" />
             <span class="pointer-events-none absolute -left-3 -top-3 h-6 w-6 rounded-full bg-accent-1 blur-sm"></span>
             <span class="pointer-events-none absolute -right-3 -bottom-3 h-8 w-8 rounded-full bg-accent-3 blur-md"></span>
           </div>
@@ -268,15 +275,15 @@
   <!-- PROJECTS -->
   <section id="projects" class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
+      <div class="text-center reveal">
         <h2 class="font-space text-3xl sm:text-5xl font-bold text-white">Projects</h2>
         <p class="mt-3 text-base text-base-300">Selected work across IoT, embedded, and web tools.</p>
       </div>
 
       <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Card component -->
-        <article class="group rounded-2xl border border-white/10 bg-white/[0.06] p-3 hover:bg-white/[0.09] transition-colors">
-          <div class="relative h-44 w-full overflow-hidden rounded-xl">
+        <article class="group rounded-2xl border border-white/10 bg-white/[0.06] p-3 hover:bg-white/[0.09] transition-colors tilt reveal">
+          <div class="relative h-44 w-full overflow-hidden rounded-xl tilt-inner">
             <img src="https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Smart Exhaust Fan project cover" class="h-full w-full object-cover group-hover:scale-[1.03] transition will-change-transform" loading="lazy"/>
             <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-base-900/90 to-transparent"></span>
           </div>
@@ -286,7 +293,7 @@
             <div class="mt-3 flex flex-wrap gap-2 text-xs">
               <span class="rounded-full border border-accent-1/30 px-2 py-1 text-accent-1/90">Arduino</span>
               <span class="rounded-full border border-accent-2/30 px-2 py-1 text-accent-2/90">IoT</span>
-              <span class="rounded-full border border-accent-4/30 px-2 py-1 text-accent-4/90">Sensors</span>
+              <span class="rounded-full border border-accent-3/30 px-2 py-1 text-accent-3/90">Sensors</span>
             </div>
             <a href="https://rsmk27.github.io/myportfolio" target="_blank" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 hover:bg-white/10">
               View Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -294,8 +301,8 @@
           </div>
         </article>
 
-        <article class="group rounded-2xl border border-white/10 bg-white/[0.06] p-3 hover:bg-white/[0.09] transition-colors">
-          <div class="relative h-44 w-full overflow-hidden rounded-xl">
+        <article class="group rounded-2xl border border-white/10 bg-white/[0.06] p-3 hover:bg-white/[0.09] transition-colors tilt reveal">
+          <div class="relative h-44 w-full overflow-hidden rounded-xl tilt-inner">
             <img src="https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Color Ohm application cover" class="h-full w-full object-cover group-hover:scale-[1.03] transition will-change-transform" loading="lazy"/>
             <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-base-900/90 to-transparent"></span>
           </div>
@@ -305,7 +312,7 @@
             <div class="mt-3 flex flex-wrap gap-2 text-xs">
               <span class="rounded-full border border-accent-1/30 px-2 py-1 text-accent-1/90">Python</span>
               <span class="rounded-full border border-accent-2/30 px-2 py-1 text-accent-2/90">Tkinter</span>
-              <span class="rounded-full border border-accent-4/30 px-2 py-1 text-accent-4/90">GUI</span>
+              <span class="rounded-full border border-accent-3/30 px-2 py-1 text-accent-3/90">GUI</span>
             </div>
             <a href="https://rsmk27.github.io/colorohm" target="_blank" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 hover:bg-white/10">
               View Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -313,8 +320,8 @@
           </div>
         </article>
 
-        <article class="group rounded-2xl border border-white/10 bg-white/[0.06] p-3 hover:bg-white/[0.09] transition-colors">
-          <div class="relative h-44 w-full overflow-hidden rounded-xl">
+        <article class="group rounded-2xl border border-white/10 bg-white/[0.06] p-3 hover:bg-white/[0.09] transition-colors tilt reveal">
+          <div class="relative h-44 w-full overflow-hidden rounded-xl tilt-inner">
             <img src="https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Budget Buddy web app cover" class="h-full w-full object-cover group-hover:scale-[1.03] transition will-change-transform" loading="lazy"/>
             <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-base-900/90 to-transparent"></span>
           </div>
@@ -324,7 +331,7 @@
             <div class="mt-3 flex flex-wrap gap-2 text-xs">
               <span class="rounded-full border border-accent-1/30 px-2 py-1 text-accent-1/90">HTML</span>
               <span class="rounded-full border border-accent-2/30 px-2 py-1 text-accent-2/90">CSS</span>
-              <span class="rounded-full border border-accent-4/30 px-2 py-1 text-accent-4/90">JavaScript</span>
+              <span class="rounded-full border border-accent-3/30 px-2 py-1 text-accent-3/90">JavaScript</span>
             </div>
             <a href="https://rsmk27.github.io/BudgetBuddy" target="_blank" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 hover:bg-white/10">
               View Project <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -333,15 +340,15 @@
         </article>
 
         <!-- Upcoming placeholders -->
-        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-base-300">
+        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-base-300 reveal">
           <div class="mb-3 text-2xl">UPCOMING</div>
           <p class="text-sm">A placeholder for an upcoming project.</p>
         </article>
-        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-base-300">
+        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-base-300 reveal">
           <div class="mb-3 text-2xl">UPCOMING</div>
           <p class="text-sm">A placeholder for an upcoming project.</p>
         </article>
-        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-base-300">
+        <article class="rounded-2xl border border-dashed border-white/15 p-6 text-center text-base-300 reveal">
           <div class="mb-3 text-2xl">UPCOMING</div>
           <p class="text-sm">A placeholder for an upcoming project.</p>
         </article>
@@ -352,12 +359,12 @@
   <!-- SKILLS -->
   <section id="skills" class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
+      <div class="text-center reveal">
         <h2 class="font-space text-3xl sm:text-5xl font-bold text-white">Skills</h2>
       </div>
 
       <div class="mt-10 grid lg:grid-cols-2 gap-8">
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 reveal">
           <h3 class="text-white font-semibold">Languages & Tools</h3>
           <div class="mt-4 space-y-4">
             <!-- Progress row -->
@@ -367,7 +374,7 @@
                 <span class="text-base-400">70%</span>
               </div>
               <div class="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                <span class="block h-full w-[70%] bg-gradient-to-r from-accent-1 via-accent-4 to-accent-2"></span>
+                <span class="block h-full w-[70%] bg-gradient-to-r from-accent-1 via-accent-3 to-accent-2"></span>
               </div>
             </div>
             <div>
@@ -394,7 +401,7 @@
                 <span class="text-base-400">75%</span>
               </div>
               <div class="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                <span class="block h-full w-[75%] bg-gradient-to-r from-accent-5 via-accent-1 to-accent-4"></span>
+                <span class="block h-full w-[75%] bg-gradient-to-r from-accent-2 via-accent-1 to-accent-3"></span>
               </div>
             </div>
             <div>
@@ -403,13 +410,13 @@
                 <span class="text-base-400">75%</span>
               </div>
               <div class="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                <span class="block h-full w-[75%] bg-gradient-to-r from-accent-4 via-accent-3 to-accent-1"></span>
+                <span class="block h-full w-[75%] bg-gradient-to-r from-accent-3 via-accent-2 to-accent-1"></span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 reveal">
           <h3 class="text-white font-semibold">Concepts & APIs</h3>
           <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
             <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
@@ -425,15 +432,15 @@
               <p class="mt-2 text-sm">Telegram Bot API</p>
             </div>
             <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
-              <i class="fa-solid fa-code-merge text-2xl text-accent-4"></i>
+              <i class="fa-solid fa-code-merge text-2xl text-accent-3"></i>
               <p class="mt-2 text-sm">Circuit Design</p>
             </div>
             <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
-              <i class="fa-solid fa-battery-half text-2xl text-accent-5"></i>
+              <i class="fa-solid fa-battery-half text-2xl text-accent-2"></i>
               <p class="mt-2 text-sm">Power Electronics</p>
             </div>
             <div class="group rounded-xl border border-white/10 bg-base-800 p-5 text-center hover:border-white/20">
-              <i class="fa-solid fa-robot text-2xl text-accent-4"></i>
+              <i class="fa-solid fa-robot text-2xl text-accent-1"></i>
               <p class="mt-2 text-sm">AI</p>
             </div>
           </div>
@@ -445,13 +452,13 @@
   <!-- CONTACT -->
   <section id="contact" class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
+      <div class="text-center reveal">
         <h2 class="font-space text-3xl sm:text-5xl font-bold text-white">Get In Touch</h2>
         <p class="mt-3 text-base text-base-300">Let's connect and build something meaningful.</p>
       </div>
 
       <div class="mt-10 grid lg:grid-cols-2 gap-8 items-start">
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 reveal">
           <p class="text-base text-base-200">Reach me on:</p>
           <div class="mt-5 flex gap-4">
             <a href="https://github.com/Rsmk27" target="_blank" aria-label="GitHub" class="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/15 hover:bg-white/10">
@@ -471,7 +478,7 @@
           </a>
         </div>
 
-        <form id="contact-form" class="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4" novalidate>
+        <form id="contact-form" class="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4 reveal" novalidate>
           <div>
             <label for="name" class="block text-sm text-base-300">Name</label>
             <input id="name" name="name" type="text" required class="mt-1 w-full rounded-xl border border-white/10 bg-base-800 px-4 py-3 text-base-100 placeholder:text-base-400 focus:border-accent-1/60 focus:ring-0" placeholder="Your name" />
@@ -488,7 +495,7 @@
             <p class="mt-1 hidden text-xs text-red-400" id="msgErr">Please enter a message.</p>
           </div>
           <button type="submit" class="inline-flex h-12 items-center justify-center rounded-2xl px-6 bg-white/10 ring-1 ring-white/15 hover:bg-white/15 shadow-glow">Send Message</button>
-          <p id="formStatus" class="text-sm text-base-300"></p>
+          <p id="formStatus" class="text-sm text-base-300" aria-live="polite"></p>
         </form>
       </div>
     </div>
@@ -502,12 +509,17 @@
   </footer>
 
   <script>
-    // Scroll progress
+    // Utils
+    const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+
+    // Scroll progress & nav state
     const progress = document.getElementById('progress');
+    const header = document.querySelector('header');
     const onScroll = () => {
       const h = document.documentElement;
       const s = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
       progress.style.width = (s * 100) + '%';
+      header.classList.toggle('scrolled', h.scrollTop > 10);
     };
     document.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -536,6 +548,44 @@
       mobileMenu.classList.toggle('hidden');
     });
 
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) e.target.classList.add('show');
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Parallax (elements with data-parallax="speed")
+    const parallaxItems = [...document.querySelectorAll('[data-parallax]')];
+    const parallax = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      for (const el of parallaxItems) {
+        const sp = parseFloat(el.getAttribute('data-parallax')) || 0;
+        el.style.transform = `translate3d(0, ${y * sp}px, 0)`;
+      }
+    };
+    document.addEventListener('scroll', parallax, { passive: true });
+    parallax();
+
+    // Tilt effect for cards and hero visual
+    const attachTilt = (root) => {
+      const inner = root.querySelector('.tilt-inner');
+      if (!inner) return;
+      const r = root.getBoundingClientRect();
+      const cx = r.left + r.width/2, cy = r.top + r.height/2;
+      const onMove = (ev) => {
+        const x = ev.clientX, y = ev.clientY;
+        const dx = clamp((x - cx) / (r.width/2), -1, 1);
+        const dy = clamp((y - cy) / (r.height/2), -1, 1);
+        inner.style.transform = `rotateX(${(-dy*6).toFixed(2)}deg) rotateY(${(dx*6).toFixed(2)}deg) translateZ(10px)`;
+      };
+      const onLeave = () => inner.style.transform = 'translateZ(0)';
+      root.addEventListener('mousemove', onMove);
+      root.addEventListener('mouseleave', onLeave);
+    };
+    document.querySelectorAll('.tilt').forEach(attachTilt);
+
     // Simple form validation (client-only)
     const form = document.getElementById('contact-form');
     const nameErr = document.getElementById('nameErr');
@@ -557,6 +607,34 @@
       // Fake network
       setTimeout(() => { status.textContent = 'Message sent! I will get back to you soon.'; form.reset(); }, 900);
     });
+
+    // Lightweight canvas stars/particles
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let W=0, H=0, stars=[]; const COUNT = 90; // keep it light
+    function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    function resetStar(){
+      return { x: Math.random()*W, y: Math.random()*H, z: Math.random()*0.6 + 0.4, vx: (Math.random()-0.5)*0.15, vy: (Math.random()-0.5)*0.15 };
+    }
+    function init(){
+      resize(); stars = Array.from({length: COUNT}, resetStar);
+      draw();
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(const s of stars){
+        s.x += s.vx * (1.5*s.z); s.y += s.vy * (1.5*s.z);
+        if (s.x < -20 || s.x > W+20 || s.y < -20 || s.y > H+20) Object.assign(s, resetStar());
+        ctx.beginPath();
+        const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 1.8 + 1.8*s.z);
+        g.addColorStop(0, 'rgba(0,183,255,0.9)');
+        g.addColorStop(1, 'rgba(0,183,255,0)');
+        ctx.fillStyle = g; ctx.arc(s.x, s.y, 1.8 + 1.2*s.z, 0, Math.PI*2); ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize', resize);
+    init();
   </script>
 </body>
 </html>
