@@ -182,6 +182,33 @@
         <div class="lg:col-span-5 reveal">
           <div class="relative mx-auto w-full max-w-md rounded-[28px] border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.06] p-2 shadow-subtle">
             <div class="relative rounded-[22px] overflow-hidden bg-ink-800">
+              <!-- Animated minimalist circuitry overlay -->
+              <svg class="circuit" viewBox="0 0 500 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <filter id="glow">
+                    <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#C7A65A" flood-opacity="0.25" />
+                  </filter>
+                </defs>
+                <!-- traces -->
+                <path class="trace" d="M20 300 H120 V220 H220 V140 H340" />
+                <path class="trace delayed" d="M60 260 H200 V200 H300 V120 H420" />
+                <path class="trace slow" d="M100 320 H240 V240 H420 V160" />
+                <!-- components (minimal icons) -->
+                <g filter="url(#glow)">
+                  <!-- resistor icon -->
+                  <path class="path" d="M220 140 h22 l6 -10 l6 20 l6 -20 l6 20 l6 -10 h18" stroke="rgba(199,166,90,0.6)" />
+                  <!-- capacitor icon -->
+                  <path class="path" d="M300 120 v-16 M316 120 v-16" stroke="rgba(199,166,90,0.6)" />
+                  <!-- inductor icon -->
+                  <path class="path" d="M180 220 q6 -10 12 0 q6 -10 12 0 q6 -10 12 0" stroke="rgba(199,166,90,0.6)" />
+                </g>
+                <!-- nodes -->
+                <circle class="node" cx="120" cy="220" r="3" />
+                <circle class="node n2" cx="220" cy="140" r="3" />
+                <circle class="node n3" cx="300" cy="120" r="3" />
+                <circle class="node" cx="340" cy="140" r="3" />
+                <circle class="node" cx="420" cy="160" r="3" />
+              </svg>
               <!-- Elegant module -->
               <div class="p-6">
                 <div class="flex items-center gap-3">
